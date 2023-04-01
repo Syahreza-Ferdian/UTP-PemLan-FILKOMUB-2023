@@ -205,19 +205,9 @@ public class Kasir {
                     // EDIT DISINI
                     System.out.print("Masukkan nomor meja: ");
                     int nomorMeja = scanner.nextInt();
-                    Meja meja = daftarMeja[nomorMeja - 1];
-                    Menu[] daftarMenuMeja = meja.getMenu();
-                    int harga = 0;
-                    for(int i = 0; i < daftarMenuMeja.length; i++){
-                        if(daftarMenuMeja[i] != null){
-                            harga += daftarMenuMeja[i].getHarga();
-                        }
-                        else {
-                            System.out.printf("Meja %d tidak memiliki pesanan.\n", nomorMeja);
-                            break;
-                        }
-                    }
+                    int harga = hitungHargaPesanan(nomorMeja);
                     if(harga > 0) System.out.printf("Harga pesanan di meja %d adalah %d\n", nomorMeja, harga);
+                    else System.out.printf("Meja %d tidak memiliki pesanan!\n", nomorMeja);
                     break;
                 }
                     
